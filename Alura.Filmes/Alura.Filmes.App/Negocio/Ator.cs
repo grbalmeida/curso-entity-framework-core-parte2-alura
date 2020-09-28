@@ -1,5 +1,8 @@
-﻿namespace Alura.Filmes.App.Negocio
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Alura.Filmes.App.Negocio
 {
+    [Table("actor")]
     public class Ator
     {
         public int Id { get; set; }
