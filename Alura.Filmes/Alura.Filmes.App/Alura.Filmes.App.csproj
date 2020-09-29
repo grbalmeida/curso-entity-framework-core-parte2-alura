@@ -126,6 +126,11 @@
   <ItemGroup>
     <Compile Include="Dados\AluraFilmesContexto.cs" />
     <Compile Include="Extensions\DbContextExtensions.cs" />
+    <Compile Include="Migrations\20200929014652_Inicial.cs" />
+    <Compile Include="Migrations\20200929014652_Inicial.designer.cs">
+      <DependentUpon>20200929014652_Inicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\AluraFilmesContextoModelSnapshot.cs" />
     <Compile Include="Negocio\Ator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -138,8 +143,6 @@
     <Content Include="Scripts\alurafilmes-cargainicial.sql" />
     <Content Include="Scripts\alurafilmes-estrutura.sql" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Migrations\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
