@@ -7,6 +7,7 @@ namespace Alura.Filmes.App.Dados
     public class AluraFilmesContexto : DbContext
     {
         public DbSet<Ator> Atores { get; set; }
+        public DbSet<Filme> Filmes { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

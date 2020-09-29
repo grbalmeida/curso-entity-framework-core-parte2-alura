@@ -11,7 +11,17 @@ namespace Alura.Filmes.App
     {
         static void Main(string[] args)
         {
-            ShadowPropertiesLINQWhere();
+            using (var contexto = new AluraFilmesContexto())
+            {
+                contexto.LogSQLToConsole();
+
+                foreach (var filme in contexto.Filmes)
+                {
+                    Console.WriteLine(filme);
+                }
+            }
+
+            Console.ReadLine();
         }
 
         private static void ShadowPropertiesLINQWhere()
