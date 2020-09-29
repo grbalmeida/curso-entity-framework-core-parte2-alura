@@ -27,10 +27,12 @@ namespace Alura.Filmes.App.Migrations
                         .HasColumnName("actor_id");
 
                     b.Property<string>("PrimeiroNome")
+                        .IsRequired()
                         .HasColumnName("first_name")
                         .HasColumnType("varchar(45)");
 
                     b.Property<string>("UltimoNome")
+                        .IsRequired()
                         .HasColumnName("last_name")
                         .HasColumnType("varchar(45)");
 
