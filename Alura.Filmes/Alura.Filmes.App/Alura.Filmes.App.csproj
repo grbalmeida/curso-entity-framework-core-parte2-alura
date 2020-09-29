@@ -125,6 +125,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dados\AluraFilmesContexto.cs" />
+    <Compile Include="Dados\AtorConfiguration.cs" />
+    <Compile Include="Dados\FilmeConfiguration.cs" />
     <Compile Include="Extensions\DbContextExtensions.cs" />
     <Compile Include="Migrations\20200929020352_Inicial.cs" />
     <Compile Include="Migrations\20200929020352_Inicial.designer.cs">
