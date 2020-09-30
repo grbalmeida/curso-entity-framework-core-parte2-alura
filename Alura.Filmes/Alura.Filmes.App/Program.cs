@@ -15,9 +15,9 @@ namespace Alura.Filmes.App
             {
                 contexto.LogSQLToConsole();
 
-                foreach (var filme in contexto.Filmes)
+                foreach (var item in contexto.Elenco)
                 {
-                    Console.WriteLine(filme);
+                    Console.WriteLine(item);
                 }
             }
 
