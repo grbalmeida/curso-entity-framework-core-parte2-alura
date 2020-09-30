@@ -130,10 +130,15 @@
     <Compile Include="Dados\FilmeAtorConfiguration.cs" />
     <Compile Include="Dados\FilmeCategoriaConfiguration.cs" />
     <Compile Include="Dados\FilmeConfiguration.cs" />
+    <Compile Include="Dados\IdiomaConfiguration.cs" />
     <Compile Include="Extensions\DbContextExtensions.cs" />
     <Compile Include="Migrations\20200929020352_Inicial.cs" />
     <Compile Include="Migrations\20200929020352_Inicial.designer.cs">
       <DependentUpon>20200929020352_Inicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20200930224045_Idioma.cs" />
+    <Compile Include="Migrations\20200930224045_Idioma.designer.cs">
+      <DependentUpon>20200930224045_Idioma.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\AluraFilmesContextoModelSnapshot.cs" />
     <Compile Include="Negocio\Ator.cs" />
@@ -141,6 +146,7 @@
     <Compile Include="Negocio\Filme.cs" />
     <Compile Include="Negocio\FilmeAtor.cs" />
     <Compile Include="Negocio\FilmeCategoria.cs" />
+    <Compile Include="Negocio\Idioma.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

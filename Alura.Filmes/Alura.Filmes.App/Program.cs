@@ -11,7 +11,17 @@ namespace Alura.Filmes.App
     {
         static void Main(string[] args)
         {
-            DesafioMapeamentoFilmesCategorias();
+            using (var contexto = new AluraFilmesContexto())
+            {
+                contexto.LogSQLToConsole();
+
+                foreach (var idioma in contexto.Idiomas)
+                {
+                    Console.WriteLine(idioma);
+                }
+            }
+
+            Console.ReadLine();
         }
 
         private static void DesafioMapeamentoFilmesCategorias()
