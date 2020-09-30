@@ -20,6 +20,7 @@ namespace Alura.Filmes.App.Dados
         {
             modelBuilder.ApplyConfiguration(new AtorConfiguration());
             modelBuilder.ApplyConfiguration(new FilmeConfiguration());
+            modelBuilder.ApplyConfiguration(new FilmeAtorConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }

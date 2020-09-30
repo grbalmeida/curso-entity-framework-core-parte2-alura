@@ -17,7 +17,12 @@ namespace Alura.Filmes.App
 
                 foreach (var item in contexto.Elenco)
                 {
-                    Console.WriteLine(item);
+                    var entidade = contexto.Entry(item);
+                    var filmId = entidade.Property<int>("film_id").CurrentValue;
+                    var actorId = entidade.Property<int>("actor_id").CurrentValue;
+                    var lastUpdate = entidade.Property<DateTime>("last_update").CurrentValue;
+
+                    Console.WriteLine($"Filme {filmId}, Ator {actorId}, LastUpdate: {lastUpdate}");
                 }
             }
 
