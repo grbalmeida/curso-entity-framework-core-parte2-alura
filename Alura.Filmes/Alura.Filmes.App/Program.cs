@@ -11,6 +11,35 @@ namespace Alura.Filmes.App
     {
         static void Main(string[] args)
         {
+            DesafioMapeamentoFilmesCategorias();
+        }
+
+        private static void DesafioMapeamentoFilmesCategorias()
+        {
+            using (var contexto = new AluraFilmesContexto())
+            {
+                contexto.LogSQLToConsole();
+
+                var categoria = contexto.Categorias
+                    .Include(c => c.Filmes)
+                    .ThenInclude(cf => cf.Filme)
+                    .First();
+
+                Console.WriteLine(categoria);
+                Console.WriteLine(contexto.Entry(categoria).Property<DateTime>("last_update").CurrentValue);
+                Console.WriteLine("Filmes:");
+
+                foreach (var item in categoria.Filmes)
+                {
+                    Console.WriteLine(item.Filme);
+                }
+            }
+
+            Console.ReadLine();
+        }
+
+        private static void ConfigurandoChavesEstrangeiras()
+        {
             using (var contexto = new AluraFilmesContexto())
             {
                 contexto.LogSQLToConsole();
