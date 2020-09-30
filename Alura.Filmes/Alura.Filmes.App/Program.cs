@@ -15,6 +15,25 @@ namespace Alura.Filmes.App
             {
                 contexto.LogSQLToConsole();
 
+                var filme = contexto.Filmes
+                    .Include(f => f.IdiomaFalado)
+                    .Include(f => f.IdiomaOriginal)
+                    .First();
+
+                Console.WriteLine(filme);
+                Console.WriteLine($"Idioma falado: {filme.IdiomaFalado.Nome}");
+                Console.WriteLine($"Idioma original: {filme.IdiomaOriginal.Nome}");
+            }
+
+            Console.ReadLine();
+        }
+
+        private static void MultiplosRelacionamentosMesmasTabelas()
+        {
+            using (var contexto = new AluraFilmesContexto())
+            {
+                contexto.LogSQLToConsole();
+
                 foreach (var idioma in contexto.Idiomas)
                 {
                     Console.WriteLine(idioma);
