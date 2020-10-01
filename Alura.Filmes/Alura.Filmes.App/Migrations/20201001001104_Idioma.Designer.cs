@@ -11,7 +11,7 @@ using System;
 namespace Alura.Filmes.App.Migrations
 {
     [DbContext(typeof(AluraFilmesContexto))]
-    [Migration("20200930224045_Idioma")]
+    [Migration("20201001001104_Idioma")]
     partial class Idioma
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -89,12 +89,20 @@ namespace Alura.Filmes.App.Migrations
                         .HasColumnName("title")
                         .HasColumnType("varchar(255)");
 
+                    b.Property<byte>("language_id");
+
                     b.Property<DateTime>("last_update")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime")
                         .HasDefaultValueSql("getdate()");
 
+                    b.Property<byte?>("original_language_id");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("language_id");
+
+                    b.HasIndex("original_language_id");
 
                     b.ToTable("film");
                 });
@@ -153,6 +161,18 @@ namespace Alura.Filmes.App.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("language");
+                });
+
+            modelBuilder.Entity("Alura.Filmes.App.Negocio.Filme", b =>
+                {
+                    b.HasOne("Alura.Filmes.App.Negocio.Idioma", "IdiomaFalado")
+                        .WithMany("FilmesFalados")
+                        .HasForeignKey("language_id")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Alura.Filmes.App.Negocio.Idioma", "IdiomaOriginal")
+                        .WithMany("FilmesOriginais")
+                        .HasForeignKey("original_language_id");
                 });
 
             modelBuilder.Entity("Alura.Filmes.App.Negocio.FilmeAtor", b =>
