@@ -31,6 +31,16 @@ namespace Alura.Filmes.App.Dados
                 .Property<DateTime>("last_update")
                 .HasColumnType("datetime")
                 .HasDefaultValueSql("getdate()");
+
+            /*
+                Os índices são usados para fazer pesquisas com base em uma coluna (ou conjunto de colunas) mais eficiente
+                No Entity não é possível criar índices com base em annotations
+                Por convenção, um índice é criado em cada propriedade que é usada com uma chave estrangeira
+            */
+
+            builder
+                .HasIndex(a => a.UltimoNome)
+                .HasName("idx_actor_last_name");
         }
     }
 }
