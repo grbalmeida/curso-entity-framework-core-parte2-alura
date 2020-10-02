@@ -152,6 +152,10 @@
     <Compile Include="Migrations\20201002003931_Classificacao.designer.cs">
       <DependentUpon>20201002003931_Classificacao.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20201002005044_FilmeCheckConstraint.cs" />
+    <Compile Include="Migrations\20201002005044_FilmeCheckConstraint.designer.cs">
+      <DependentUpon>20201002005044_FilmeCheckConstraint.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AluraFilmesContextoModelSnapshot.cs" />
     <Compile Include="Negocio\Ator.cs" />
     <Compile Include="Negocio\Categoria.cs" />
