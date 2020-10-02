@@ -148,6 +148,10 @@
     <Compile Include="Migrations\20201002002950_UniqueAtorPrimeiroUltimoNome.designer.cs">
       <DependentUpon>20201002002950_UniqueAtorPrimeiroUltimoNome.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20201002003931_Classificacao.cs" />
+    <Compile Include="Migrations\20201002003931_Classificacao.designer.cs">
+      <DependentUpon>20201002003931_Classificacao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AluraFilmesContextoModelSnapshot.cs" />
     <Compile Include="Negocio\Ator.cs" />
     <Compile Include="Negocio\Categoria.cs" />

@@ -11,7 +11,31 @@ namespace Alura.Filmes.App
     {
         static void Main(string[] args)
         {
-            ConfigurandoRestricoesUnique();
+            ColunaClassificacaoIndicativa();   
+        }
+
+        private static void ColunaClassificacaoIndicativa()
+        {
+            using (var contexto = new AluraFilmesContexto())
+            {
+                contexto.LogSQLToConsole();
+
+                var idioma = contexto.Idiomas.First();
+
+                var filme = new Filme
+                {
+                    Titulo = "Senhor dos Anéis",
+                    Duracao = 120,
+                    AnoLancamento = "2000",
+                    Classificacao = "Qualquer",
+                    IdiomaFalado = idioma
+                };
+
+                contexto.Filmes.Add(filme);
+                contexto.SaveChanges();
+            }
+
+            Console.ReadLine();
         }
 
         private static void ConfigurandoRestricoesUnique()
