@@ -140,6 +140,14 @@
     <Compile Include="Migrations\20201001001104_Idioma.designer.cs">
       <DependentUpon>20201001001104_Idioma.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20201002001715_IndiceAtorUltimoNome.cs" />
+    <Compile Include="Migrations\20201002001715_IndiceAtorUltimoNome.designer.cs">
+      <DependentUpon>20201002001715_IndiceAtorUltimoNome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20201002002950_UniqueAtorPrimeiroUltimoNome.cs" />
+    <Compile Include="Migrations\20201002002950_UniqueAtorPrimeiroUltimoNome.designer.cs">
+      <DependentUpon>20201002002950_UniqueAtorPrimeiroUltimoNome.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AluraFilmesContextoModelSnapshot.cs" />
     <Compile Include="Negocio\Ator.cs" />
     <Compile Include="Negocio\Categoria.cs" />

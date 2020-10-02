@@ -11,24 +11,34 @@ namespace Alura.Filmes.App
     {
         static void Main(string[] args)
         {
+            ConfigurandoRestricoesUnique();
+        }
+
+        private static void ConfigurandoRestricoesUnique()
+        {
             using (var contexto = new AluraFilmesContexto())
             {
                 contexto.LogSQLToConsole();
 
-                var idiomas = contexto.Idiomas
-                    .Include(i => i.FilmesFalados);
-
-                foreach (var idioma in idiomas)
+                var ator1 = new Ator
                 {
-                    Console.WriteLine(idioma);
+                    PrimeiroNome = "Emma",
+                    UltimoNome = "Watson"
+                };
 
-                    foreach (var filme in idioma.FilmesFalados)
-                    {
-                        Console.WriteLine(filme);
-                    }
+                var ator2 = new Ator
+                {
+                    PrimeiroNome = "Emma",
+                    UltimoNome = "Watson"
+                };
 
-                    Console.WriteLine();
-                }
+                contexto.Atores.AddRange(ator1, ator2);
+                contexto.SaveChanges();
+
+                var emmaWatson = contexto.Atores
+                    .Where(a => a.PrimeiroNome == "Emma" && a.UltimoNome == "Watson");
+
+                Console.WriteLine($"Total de atores encontrados: {emmaWatson.Count()}");
             }
 
             Console.ReadLine();
