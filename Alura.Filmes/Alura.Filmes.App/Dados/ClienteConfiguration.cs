@@ -5,10 +5,12 @@ using System;
 
 namespace Alura.Filmes.App.Dados
 {
-    public class ClienteConfiguration : IEntityTypeConfiguration<Cliente>
+    public class ClienteConfiguration : PessoaConfiguration<Cliente>
     {
-        public void Configure(EntityTypeBuilder<Cliente> builder)
+        public override void Configure(EntityTypeBuilder<Cliente> builder)
         {
+            base.Configure(builder);
+
             builder.ToTable("customer");
 
             builder
@@ -16,33 +18,7 @@ namespace Alura.Filmes.App.Dados
                 .HasColumnName("customer_id");
 
             builder
-                .Property(c => c.PrimeiroNome)
-                .HasColumnName("first_name")
-                .HasColumnType("varchar(45)")
-                .IsRequired();
-
-            builder
-                .Property(c => c.UltimoNome)
-                .HasColumnName("last_name")
-                .HasColumnType("varchar(45)")
-                .IsRequired();
-
-            builder
-                .Property(c => c.Email)
-                .HasColumnName("email")
-                .HasColumnType("varchar(50)");
-
-            builder
-                .Property(c => c.Ativo)
-                .HasColumnName("active");
-
-            builder
                 .Property<DateTime>("create_date")
-                .HasColumnType("datetime")
-                .HasDefaultValueSql("getdate()");
-
-            builder
-                .Property<DateTime>("last_update")
                 .HasColumnType("datetime")
                 .HasDefaultValueSql("getdate()");
         }
