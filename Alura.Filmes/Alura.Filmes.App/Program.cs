@@ -11,7 +11,9 @@ namespace Alura.Filmes.App
     {
         static void Main(string[] args)
         {
-            ColunaClassificacaoIndicativa();   
+            Console.WriteLine("G".ParaValor());
+
+            Console.ReadLine();
         }
 
         private static void ColunaClassificacaoIndicativa()
