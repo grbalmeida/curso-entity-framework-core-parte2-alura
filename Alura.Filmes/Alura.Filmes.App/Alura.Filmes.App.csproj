@@ -164,6 +164,10 @@
     <Compile Include="Migrations\20201004003628_Enumerado.designer.cs">
       <DependentUpon>20201004003628_Enumerado.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20201004020801_Pessoa.cs" />
+    <Compile Include="Migrations\20201004020801_Pessoa.designer.cs">
+      <DependentUpon>20201004020801_Pessoa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AluraFilmesContextoModelSnapshot.cs" />
     <Compile Include="Negocio\Ator.cs" />
     <Compile Include="Negocio\Categoria.cs" />
