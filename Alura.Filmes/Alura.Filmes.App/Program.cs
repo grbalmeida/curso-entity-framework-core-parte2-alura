@@ -12,7 +12,27 @@ namespace Alura.Filmes.App
     {
         static void Main(string[] args)
         {
-            ModeloDeDadosDoEntity();
+            MapeandoHeranca();
+        }
+
+        private static void MapeandoHeranca()
+        {
+            using (var contexto = new AluraFilmesContexto())
+            {
+                contexto.LogSQLToConsole();
+
+                foreach (var cliente in contexto.Clientes)
+                {
+                    Console.WriteLine(cliente);
+                }
+
+                foreach (var funcionario in contexto.Funcionarios)
+                {
+                    Console.WriteLine(funcionario);
+                }
+
+                Console.ReadLine();
+            }
         }
 
         private static void ModeloDeDadosDoEntity()
