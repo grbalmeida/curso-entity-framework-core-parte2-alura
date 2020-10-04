@@ -3,6 +3,8 @@ using Alura.Filmes.App.Extensions;
 using Alura.Filmes.App.Negocio;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 
 namespace Alura.Filmes.App
@@ -11,7 +13,36 @@ namespace Alura.Filmes.App
     {
         static void Main(string[] args)
         {
-            UsandoViewsComEntity();
+            UsandoStoredProcedures();
+        }
+
+        private static void UsandoStoredProcedures()
+        {
+            using (var contexto = new AluraFilmesContexto())
+            {
+                contexto.LogSQLToConsole();
+
+                var categoria = "Action"; // 36
+
+                var paramCategoria = new SqlParameter("category_name", categoria);
+                var paramTotal = new SqlParameter
+                {
+                    ParameterName = "@total_actors",
+                    Size = 4,
+                    Direction = ParameterDirection.Output
+                };
+
+                contexto.Database
+                    .ExecuteSqlCommand(
+                        "execute total_actors_from_given_category @category_name, @total_actors OUT",
+                        paramCategoria,
+                        paramTotal
+                    );
+
+                Console.WriteLine($"O total de atores na categoria {categoria} é de {paramTotal.Value}.");
+            }
+
+            Console.ReadLine();
         }
 
         private static void UsandoViewsComEntity()
