@@ -27,7 +27,7 @@ namespace Alura.Filmes.App
                     Titulo = "Senhor dos Anéis",
                     Duracao = 120,
                     AnoLancamento = "2000",
-                    Classificacao = "Qualquer",
+                    Classificacao = ClassificacaoIndicativa.Livre,
                     IdiomaFalado = idioma
                 };
 
