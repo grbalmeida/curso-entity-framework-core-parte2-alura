@@ -13,7 +13,29 @@ namespace Alura.Filmes.App
     {
         static void Main(string[] args)
         {
-            UsandoStoredProcedures();
+            EnviandoComandosInsertUpdateDelete();
+        }
+
+        private static void EnviandoComandosInsertUpdateDelete()
+        {
+            using (var contexto = new AluraFilmesContexto())
+            {
+                contexto.LogSQLToConsole();
+
+                var sql = "INSERT INTO language (name) VALUES ('Teste 1'), ('Teste 2'), ('Teste 3')";
+
+                var registros = contexto.Database.ExecuteSqlCommand(sql);
+
+                Console.WriteLine($"O total de registros afetados é {registros}.");
+
+                var deleteSql = "DELETE FROM language WHERE name LIKE 'Teste%'";
+
+                registros = contexto.Database.ExecuteSqlCommand(deleteSql);
+
+                Console.WriteLine($"O total de registros afetados é {registros}.");
+            }
+
+            Console.ReadLine();
         }
 
         private static void UsandoStoredProcedures()
